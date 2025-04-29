@@ -28,7 +28,7 @@ Nessa areá aparecerá as categorias presentes no mercado,como, comida,bebidas,r
 
 ## Tela de Cadastro usuário cliente
 
-![Tela de Cadastro usuário cliente](src/assets/imgs/h2_cadastroCliente.png)
+![Tela de Cadastro usuário cliente](src/assets/img/h1_cadastroFornecedor.png)
 
 ### Storyboards
 
