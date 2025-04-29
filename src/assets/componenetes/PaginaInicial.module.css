@@ -1,0 +1,193 @@
+.cadastro-container {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os filhos horizontalmente */
+  position: relative;
+  overflow-x: hidden;
+}
+
+.background-image {
+  position: fixed; /* Fixa a imagem para cobrir toda a viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Garante que cubra toda a altura */
+  background-image: url('/image.png');
+  background-repeat: repeat-x; /* Repetir horizontalmente */
+  background-size: cover; /* Cobrir toda a área, pode cortar um pouco */
+  background-position: bottom; /* Posicionar na parte inferior */
+  opacity: 0.6; /* Ajuste a opacidade conforme necessário */
+  z-index: -2; /* Colocar atrás de tudo */
+  opacity: 3;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.logo-blue {
+  color: blue;
+}
+
+.logo-black {
+  color: black;
+}
+
+.cabecalho {
+ 
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  z-index: 5; 
+  margin: 0 auto; 
+}
+
+.botao-voltar,
+.botao-usuario {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.barra-pesquisa {
+  display: flex;
+  align-items: center;
+  background-color: hwb(0 0% 100%);
+  border-radius: 25px;
+  padding: 8px 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+  flex-grow: 1;
+}
+
+.barra-pesquisa input[type="text"] {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  margin-right: 10px;
+  width: 100%;
+  font-size: 1em;
+}
+
+.botao-pesquisar {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.conteudo-principal {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 80px; 
+  margin-left: auto;
+  margin-right: auto; 
+  background-color: transparent; 
+}
+
+.card-opcao {
+  background-color: #fff; 
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: calc(33% - 15px);
+  min-width: 180px;
+}
+
+.card-imagem {
+  height: 150px;
+  overflow: hidden;
+}
+
+.card-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-texto {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 5px;
+}
+
+.card-acoes {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.botao-orcamento,
+.botao-ligar {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-decoration: none;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.rodape {
+
+  width: 100%;
+  max-width: 600px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  z-index: 5; 
+  margin: 0 auto; 
+  text-align: center; 
+}
+
+.fundo-silhuetas {
+ 
+  display: none; 
+}
+.perfil-icon-container {
+  position: absolute;
+  top: 15px; 
+  right: 15px; 
+  width: 30px; 
+  height: 30px; 
+  z-index: 10; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0); 
+  color: #ffffff; 
+  font-size: 1.2em; 
+  cursor: pointer; 
+}
