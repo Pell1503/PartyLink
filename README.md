@@ -52,7 +52,7 @@ No cabeçalho da tela principal há a opção do cliente pesquisar pelos fornece
 
 ## Tela de visualizar fornecedores
 
-![Tela de visualizar fornecedores](src/assets/imgs/h4_visualizarFornecedores.png)
+![Tela de visualizar fornecedores](src/assets/img/h4_visualizarFornecedores.png)
 
 ### Storyboards
 
