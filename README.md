@@ -60,7 +60,7 @@ Na tela principal o cliente visualizará os fornecdores presentes na plataforma.
 
 ## Tela de visualização de propostas
 
-![Tela de visualização de propostas](src/assets/imgs/h5_realizarProposta.png)
+![Tela de visualização de propostas](src/assets/img/h5_realizarProposta.png)
 
 ### Storyboards
 
