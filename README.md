@@ -26,7 +26,7 @@ Nessa areá aparecerá as categorias presentes no mercado,como, comida,bebidas,r
 
 # Diagrama de atividades
 
-![Diagrama de atividades](src/assets/img/h2_cadastroCliente.png)
+![Diagrama de atividades](src/assets/img/WhatsApp%20Image%202025-04-29%20at%2019.29.16%20(1).jpeg)
 
 # Protótipos de Lo-Fi (figma)
 
