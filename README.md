@@ -28,7 +28,7 @@ Nessa areá aparecerá as categorias presentes no mercado,como, comida,bebidas,r
 
 ## Tela de Cadastro usuário cliente
 
-![Tela de Cadastro usuário cliente](src/assets/imgs/h2_cadastroCliente.png)
+![Tela de Cadastro usuário cliente](src/assets/img/h2_cadastroCliente.png)
 
 ### Storyboards
 
@@ -36,7 +36,7 @@ Caso o usuário não tenha uma conta na partylink e deseja se cadastrar como cli
 
 ## Tela de Cadastro usuário fornecedor
 
-![Tela de Cadastro usuário fornecedor](src/assets/imgs/h1_cadastroFornecedor.png)
+![Tela de Cadastro usuário fornecedor](src/assets/img/h1_cadastroFornecedor.png)
 
 ### Storyboards
 
@@ -44,7 +44,7 @@ Caso o usuário não tenha uma conta na partylink e deseja se cadastrar como for
 
 ## Tela de pesquisar por fornecedores
 
-![Tela de pesquisar por fornecedores](src/assets/imgs/h3-pesquisarFornecedor.png)
+![Tela de pesquisar por fornecedores](src/assets/img/h3-pesquisarFornecedor.png)
 
 ### Storyboards
 
@@ -52,7 +52,7 @@ No cabeçalho da tela principal há a opção do cliente pesquisar pelos fornece
 
 ## Tela de visualizar fornecedores
 
-![Tela de visualizar fornecedores](src/assets/imgs/h4_visualizarFornecedores.png)
+![Tela de visualizar fornecedores](src/assets/img/h4_visualizarFornecedores.png)
 
 ### Storyboards
 
@@ -60,7 +60,7 @@ Na tela principal o cliente visualizará os fornecdores presentes na plataforma.
 
 ## Tela de visualização de propostas
 
-![Tela de visualização de propostas](src/assets/imgs/h5_realizarProposta.png)
+![Tela de visualização de propostas](src/assets/img/h5_realizarProposta.png)
 
 ### Storyboards
 
