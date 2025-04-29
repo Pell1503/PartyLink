@@ -44,7 +44,7 @@ Caso o usuário não tenha uma conta na partylink e deseja se cadastrar como for
 
 ## Tela de pesquisar por fornecedores
 
-![Tela de pesquisar por fornecedores](src/assets/img/h1_cadastroFornecedor.png)
+![Tela de pesquisar por fornecedores](src/assets/img/h3-pesquisarFornecedor.png)
 
 ### Storyboards
 
