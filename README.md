@@ -5,7 +5,7 @@ O PartyLink é um marketplace digital que fornece uma conexão entre clientes e 
 
 ## Quadro e Backlog no Trello
 
-![Backlog Trello](src/assets/imgs/quadro-trello.png)
+![Backlog Trello](src/assets/img/trello.png)
 
 ## Protótipo do Figma
 [Ver protótipo do Figma](https://www.figma.com/design/kLCXuvtk9LYKbZEaosKdjm/Market-Place?node-id=0-1&m=dev&t=wAsaRvRU5EYYFpAV-1)
