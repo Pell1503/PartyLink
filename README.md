@@ -70,6 +70,10 @@ Na tela principal o cliente visualizará os fornecdores presentes na plataforma.
 
 No cabeçalho da tela do usuário fornecedor haverá um simbolo de mensagens, lá vai está propostas, o fornecedor pode aceitar ou não. Clicando no botão de aceitar com icone de seta, ou recusar no icone de lixeira
 
+# Programação em Par experimentada
+
+Desde o inicío do projeto trabalhos juntos para o desenvolvimento da plataforma, juntando nossas ideias e soluções para póssiveis problemas. Alguns problemas surgiram que dificultou o desenolvivemento, como, tempo limitado, limitações tecnicas, e limitação na equipe, a qual era para ser formada com 4 pessoas, e no fim foi apenas dois.
+
 
 
 
