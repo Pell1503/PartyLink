@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './PaginaInicial.module.css';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+
 function Fornecedor() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+  const produtos = [
+    {
+      imagem: 'https://via.placeholder.com/200x150/FFC107/000000?Text=Sabores',
+      texto: 'Sabores & Estilo'
+    }, {
+      imagem: 'https://via.placeholder.com/200x150/4CAF50/FFFFFF?Text=Encanto',
+      texto: 'Encanto & Arte'
+    }, {
+      imagem: 'https://via.placeholder.com/200x150/9C27B0/FFFFFF?Text=Palazzo',
+      texto: 'Palazzo Fest'
+    }
+  ];
 
   const handleOrcamentoClick = () => {
-    navigate('/pedido'); 
+    navigate('/pedido');
   };
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredProdutos = produtos.filter(produto =>
+    produto.texto.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className={styles['cadastro-container']}>
@@ -20,29 +42,24 @@ function Fornecedor() {
       <div className={styles.cabecalho}>
         <button className={styles['botao-voltar']}>←</button>
         <div className={styles['barra-pesquisa']}>
-          <input type="text" placeholder="PESQUISAR" />
+          <input
+            type="text"
+            placeholder="PESQUISAR"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
           <button className={styles['botao-pesquisar']}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m21 21-5.2-5.2"/></svg>
           </button>
         </div>
-       
+
         <div className={styles['perfil-icon-container']}>
-         
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
       </div>
 
       <div className={styles['conteudo-principal']}>
-        {[{
-          imagem: 'https://via.placeholder.com/200x150/FFC107/000000?Text=Sabores',
-          texto: 'Sabores & Estilo'
-        }, {
-          imagem: 'https://via.placeholder.com/200x150/4CAF50/FFFFFF?Text=Encanto',
-          texto: 'Encanto & Arte'
-        }, {
-          imagem: 'https://via.placeholder.com/200x150/9C27B0/FFFFFF?Text=Palazzo',
-          texto: 'Palazzo Fest'
-        }].map((item, index) => (
+        {filteredProdutos.map((item, index) => (
           <div className={styles['card-opcao']} key={index}>
             <div className={styles['card-imagem']}>
               <img src={item.imagem} alt={item.texto} />

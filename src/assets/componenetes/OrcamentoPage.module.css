@@ -140,3 +140,21 @@
   opacity: 2;
   z-index: -2;
 }
+cabecalho {
+  /* Se já tiver display: flex */
+  justify-content: space-between; /* Ou space-around, space-evenly, etc., dependendo do layout desejado */
+  align-items: center; /* Manter alinhamento vertical */
+  /* Outros estilos do cabeçalho */
+}
+
+.perfil-icon-container {
+  position: relative;
+  cursor: pointer;
+  /* Adicione isso para garantir que fique à direita */
+  margin-left: auto;
+  display: flex; /* Para possível alinhamento interno se necessário */
+  justify-content: center; /* Centraliza o ícone dentro do container */
+  align-items: center;
+  width: auto; /* Ajuste conforme necessário */
+  padding: 5px; /* Adicione um pouco de padding ao redor do ícone */
+}

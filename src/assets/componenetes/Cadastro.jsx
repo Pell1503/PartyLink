@@ -12,7 +12,7 @@ function Cadastro() {
         <span className={styles['logo-black']}>Link</span>
       </div>
 
-      <h1 className={styles.titulo}>CADASTRO</h1> 
+      <h1 className={styles.titulo}>LOGIN</h1> 
       <div className={styles.formulario}>
         <input
           type="email"
