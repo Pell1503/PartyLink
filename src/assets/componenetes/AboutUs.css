@@ -1,0 +1,258 @@
+/* src/assets/componenetes/AboutUs.css */
+
+/* Animações (consistente com outras páginas) */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.about-us-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinha o conteúdo ao topo */
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
+  z-index: 0;
+}
+
+/* Imagem de Fundo (consistente com HomePage e Cadastro) */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/image.png"); /* Verifique o caminho */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center; /* Menos aproximado, silhuetas mais pretas */
+  opacity: 1;
+  z-index: -2;
+
+}
+
+/* Overlay semi-transparente (consistente) */
+.about-us-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* Overlay branco semi-transparente */
+  z-index: -1;
+}
+
+/* Header (copiado da HomePage, com pequenas adaptações) */
+.header {
+  width: 100%;
+  padding: 25px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.logo-link { /* Novo estilo para o link do logo */
+  text-decoration: none;
+  color: inherit; /* Mantém a cor do texto definida pelos spans */
+}
+
+.logo-blue {
+  color: #007bff;
+  margin-right: 2px;
+}
+
+.logo-black {
+  color: #333;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+  z-index: 11;
+  position: relative;
+}
+
+.nav-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 50px;
+  background-color: #333;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 12;
+  position: relative;
+}
+
+.nav-button:hover {
+  background-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Conteúdo Principal da Página Sobre Nós */
+.about-us-content {
+  z-index: 1;
+  margin-top: 80px; /* Espaço do cabeçalho */
+  margin-bottom: 50px;
+  padding: 40px; /* Mais padding para o cartão */
+  text-align: center; /* Centraliza o texto */
+  background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
+  border-radius: 15px; /* Bordas arredondadas */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  max-width: 900px; /* Largura máxima para o conteúdo */
+  width: 90%; /* Ocupa a largura disponível */
+  animation: fadeInScale 1s ease-out forwards; /* Animação de entrada */
+}
+
+.about-us-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8em;
+  color: #1a1a1a; /* Preto forte */
+  margin-bottom: 25px;
+  font-weight: 700;
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.about-us-text {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8; /* Melhor espaçamento entre linhas */
+  margin-bottom: 20px; /* Espaço entre parágrafos */
+  max-width: 750px; /* Largura máxima para a legibilidade do texto */
+  margin-left: auto;
+  margin-right: auto; /* Centraliza o parágrafo */
+  animation: fadeInSlide 1.2s ease-out forwards;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  margin-top: 30px; /* Espaço acima do botão */
+  animation: fadeInScale 1.5s ease-out forwards;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .nav-buttons {
+    margin-top: 15px;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .nav-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .about-us-content {
+    margin-top: 50px;
+    padding: 25px;
+    width: 95%;
+  }
+
+  .about-us-title {
+    font-size: 2.2em;
+  }
+
+  .about-us-text {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 15px;
+  }
+
+  .nav-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-button {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  .about-us-title {
+    font-size: 1.8em;
+  }
+
+  .about-us-text {
+    font-size: 0.95rem;
+  }
+}

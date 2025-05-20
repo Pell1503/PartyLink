@@ -1,13 +1,39 @@
+/* src/assets/componenetes/Cadastro.module.css */
 
+/* Animações */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .cadastro-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
   position: relative;
   overflow: hidden;
+  font-family: 'Poppins', sans-serif; /* Consistente com HomePage */
+  background-color: #f8f8f8; /* Cor de fundo suave */
+  z-index: 0;
 }
 
 .background-image {
@@ -16,91 +42,212 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/image.png');
+  background-image: url('/image.png'); /* Verifique o caminho da sua imagem */
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom center; /* Menos aproximado, mostrando silhuetas */
   opacity: 1;
   z-index: -2;
+  /* Filtros para as silhuetas mais pretas (consistente com HomePage) */
+  filter: brightness(0.7) contrast(2.0) saturate(0.8);
+}
+
+/* Overlay semi-transparente para melhorar o contraste */
+.cadastro-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* Overlay branco semi-transparente */
+  z-index: -1; /* Fica entre a imagem e o conteúdo */
 }
 
 .logo {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 30px; /* Mais afastado do topo */
+  left: 40px; /* Mais afastado da esquerda */
   display: flex;
-  align-items: center;
-  font-size: 40px;
-  font-weight: bold;
+  align-items: baseline; /* Alinha as bases das letras */
+  font-family: 'Montserrat', sans-serif; /* Consistente com HomePage */
+  font-size: 38px; /* Consistente com HomePage */
+  font-weight: 700; /* Mais bold */
   z-index: 10;
 }
 
 .logo-blue {
-  color: blue;
+  color: #007bff; /* Azul vibrante, consistente com HomePage */
+  margin-right: 2px;
 }
 
 .logo-black {
-  color: black;
+  color: #333; /* Preto suave, consistente com HomePage */
 }
 
 .titulo {
-  color: black;
-  font-size: 2rem; 
-  font-weight: bold;
-  z-index: 1; 
-  margin-bottom: 20px; 
+  color: #1a1a1a; /* Um preto bem forte */
+  font-family: 'Montserrat', sans-serif; /* Fonte para títulos */
+  font-size: 2.5rem; /* Um pouco maior para destaque */
+  font-weight: 700;
+  z-index: 1;
+  margin-bottom: 30px; /* Mais espaçamento */
+  text-align: center;
+  animation: slideInUp 0.8s ease-out forwards; /* Animação */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .formulario {
   z-index: 1;
-  background-color: #e5e7eb;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  width: 320px;
+  background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente para flutuar */
+  padding: 40px; /* Mais padding */
+  border-radius: 15px; /* Mais arredondado */
+  width: 100%;
+  max-width: 380px; /* Ligeiramente mais largo */
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem; /* Mais espaço entre os inputs */
   align-items: stretch;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra mais suave e profunda */
+  animation: fadeInScale 0.9s ease-out forwards; /* Animação */
 }
 
 .input {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 9999px;
-  background-color: black;
-  color: white;
-  text-align: center;
+  padding: 1rem 1.2rem; /* Mais padding para um toque maior */
+  border: 1px solid #ccc; /* Borda para um cinza mais claro */
+  border-radius: 50px; /* Totalmente arredondado (pílula) */
+  background-color: #f0f0f0; /* Um cinza claro */
+  color: #333; /* Cor do texto dentro do input */
+  text-align: left; /* Texto alinhado à esquerda */
   font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .input::placeholder {
-  color: white;
+  color: #666; /* Cor mais escura para o placeholder para melhor legibilidade */
+}
+
+.input:focus {
+  outline: none;
+  border-color: #007bff; /* Borda azul no foco */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Sombra de foco azul */
 }
 
 .botao-play {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
+  margin-top: 1.5rem; /* Mais margem superior */
+  padding: 0.9rem 1.8rem; /* Mais padding */
+  border-radius: 50px; /* Estilo pílula */
   border: none;
-  background-color: black;
+  background-color: #007bff; /* Azul da marca */
   color: white;
-  font-weight: bold;
+  font-weight: 700; /* Mais bold */
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  text-decoration: none; 
+  gap: 0.75rem; /* Mais espaço entre ícone e texto */
+  font-size: 1.1rem; /* Um pouco maior */
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Sombra para o botão */
 }
 
 .botao-play:hover {
-  background-color: #333;
+  background-color: #0056b3; /* Azul mais escuro no hover */
+  transform: translateY(-3px); /* Efeito de elevação */
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
 }
 
 .play-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px; /* Ícone um pouco maior */
+  height: 22px;
 }
+
+/* Links adicionais (agora apenas "Criar Conta") */
+.form-links {
+  z-index: 1;
+  margin-top: 20px;
+  /* Removido `flex-direction: column;` e `gap: 10px;` se houver apenas um item
+     para que o link não pareça estar em uma lista. 
+     Se precisar de mais links no futuro, pode readicionar. */
+  text-align: center;
+  animation: slideInUp 1s ease-out forwards;
+}
+
+.form-links a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.form-links a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .logo {
+    top: 20px;
+    left: 20px;
+    font-size: 32px;
+  }
+
+  .titulo {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .formulario {
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  .input {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .botao-play {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .play-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 28px;
+    top: 15px;
+    left: 15px;
+  }
+  .titulo {
+    font-size: 1.8rem;
+  }
+  .formulario {
+    padding: 25px;
+  }
+}
+/* src/assets/componenetes/Cadastro.module.css */
+
+/* ... (seu CSS existente acima) ... */
+
+/* Estilo para mensagem de erro */
+.error-message {
+  color: #dc3545; /* Vermelho vibrante para erro */
+  font-size: 0.9rem;
+  margin-top: -10px; /* Ajusta o espaçamento */
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeInScale 0.5s ease-out; /* Animação suave para aparecer */
+}
+
+/* ... (o resto do seu CSS existente abaixo) ... */
