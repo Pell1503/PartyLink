@@ -66,7 +66,7 @@
   /* NOVO: Ajustes para a imagem de fundo */
   background-position: bottom center; /* Alinha a imagem na parte inferior e centraliza horizontalmente. Isso deve "afastar" o zoom do topo e mostrar mais das silhuetas na base. */
   opacity: 1; /* Mantém a opacidade total */
-  z-index: -2;
+  z-index: -3;
   /* NOVO: Ajustes para as silhuetas mais pretas */
   filter: brightness(0.7) contrast(2.0) saturate(0.8); /* Ajustado para maior impacto */
   /* Explicação dos filtros:

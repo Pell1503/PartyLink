@@ -1,31 +1,7 @@
-/* src/assets/componenetes/Cadastro.module.css */
 
-/* Animações */
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* Remover a animação partyBackgroundPan e as variáveis de festa */
-
-.cadastro-container {
+.cadastro-novo-usuario-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -34,10 +10,11 @@
   position: relative;
   overflow: hidden;
   font-family: 'Poppins', sans-serif;
-  background-color: #f8f8f8;
+  background-color: #f8f8f8; /* Cor de fundo suave */
   z-index: 0;
 }
 
+/* Imagem de Fundo (como na página de Login) */
 .background-image {
   position: absolute;
   top: 0;
@@ -50,12 +27,11 @@
   background-position: bottom center; /* Menos aproximado, mostrando silhuetas */
   opacity: 1;
   z-index: -2;
-  /* Filtros originais para as silhuetas */
-  filter: brightness(0.7) contrast(2.0) saturate(0.8); /* Revertido para o filtro original */
+  filter: brightness(0.7) contrast(2.0) saturate(0.8); /* Filtro original da página de login */
 }
 
-/* Overlay semi-transparente para melhorar o contraste (REATIVADO) */
-.overlay-cadastro { /* Nova classe para o overlay desta página */
+/* Overlay semi-transparente para melhorar o contraste (como na página de Login) */
+.overlay-cadastro {
   content: '';
   position: absolute;
   top: 0;
@@ -66,6 +42,7 @@
   z-index: -1; /* Fica entre a imagem e o conteúdo */
 }
 
+/* Logo (como na página de Login) */
 .logo {
   position: absolute;
   top: 30px;
@@ -87,6 +64,7 @@
   color: #333;
 }
 
+/* Título do formulário */
 .titulo {
   color: #1a1a1a;
   font-family: 'Montserrat', sans-serif;
@@ -95,10 +73,11 @@
   z-index: 1;
   margin-bottom: 30px;
   text-align: center;
-  animation: slideInUp 0.8s ease-out forwards;
+  /* animation: slideInUp 0.8s ease-out forwards; REMOVIDO */
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
+/* Formulário (como na página de Login) */
 .formulario {
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.95);
@@ -111,9 +90,10 @@
   gap: 1.2rem;
   align-items: stretch;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  animation: fadeInScale 0.9s ease-out forwards;
+  /* animation: fadeInScale 0.9s ease-out forwards; REMOVIDO */
 }
 
+/* Inputs (como na página de Login) */
 .input {
   padding: 1rem 1.2rem;
   border: 1px solid #ccc;
@@ -135,44 +115,57 @@
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
-.botao-play {
+/* Botão de Cadastrar Conta (mantém o estilo que definimos) */
+.botao-cadastrar-conta {
   margin-top: 1.5rem;
   padding: 0.9rem 1.8rem;
   border-radius: 50px;
   border: none;
-  background-color: #007bff;
+  background-color: #28a745; /* Um verde vibrante para "cadastro" */
   color: white;
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
   font-size: 1.1rem;
   text-decoration: none;
-  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
 }
 
-.botao-play:hover {
-  background-color: #0056b3;
+.botao-cadastrar-conta:hover {
+  background-color: #218838;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
 }
 
-.play-icon {
-  width: 22px;
-  height: 22px;
+/* Mensagem de erro (como na página de Login) */
+.error-message {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 500;
+  /* animation: fadeInScale 0.5s ease-out; REMOVIDO */
 }
 
-/* Removido o estilo do .botao-cadastro */
+/* Mensagem de sucesso (mantém o estilo que definimos) */
+.success-message {
+  color: #28a745;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 500;
+  /* animation: fadeInScale 0.5s ease-out; REMOVIDO */
+}
 
+/* Links adicionais (link para login) */
 .form-links {
   z-index: 1;
   margin-top: 20px;
   text-align: center;
-  animation: slideInUp 1s ease-out forwards;
+  /* animation: slideInUp 1s ease-out forwards; REMOVIDO */
 }
 
 .form-links a {
@@ -187,17 +180,7 @@
   text-decoration: underline;
 }
 
-.error-message {
-  color: #dc3545;
-  font-size: 0.9rem;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  text-align: center;
-  font-weight: 500;
-  animation: fadeInScale 0.5s ease-out;
-}
-
-/* Media Queries para Responsividade */
+/* Media Queries para Responsividade (como na página de Login) */
 @media (max-width: 768px) {
   .logo {
     top: 20px;
@@ -220,14 +203,9 @@
     font-size: 0.9rem;
   }
 
-  .botao-play { /* Apenas o botao-play, sem o botao-cadastro */
+  .botao-cadastrar-conta {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
-  }
-
-  .play-icon {
-    width: 18px;
-    height: 18px;
   }
 }
 

@@ -1,120 +1,280 @@
+/* Variáveis de Cor */
+:root {
+  --primary-blue: #007bff;
+  --secondary-dark: #343a40;
+  --light-grey: #f8f9fa;
+  --mid-grey: #e9ecef;
+  --dark-text: #212529;
+  --white: #ffffff;
+  --user-bubble-bg: #e0f2f7; /* Azul bem claro para o balão do usuário (MANTIDO) */
+  --bot-bubble-bg: #ffffff; /* Branco para o balão de mensagem do bot */
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
+  --party-color-gradient-start: #6a11cb;
+  --party-color-gradient-end: #2575fc;
 
+  --accent-blue-light: #b3e0ff; /* Um azul mais claro para destaque (MANTIDO) */
+  --accent-blue-medium: #80c2f7; /* Um azul médio (MANTIDO) */
+  --accent-blue-dark: #2575fc; /* O mesmo azul do final do gradiente (MANTIDO) */
+}
 
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-grey);
+  color: var(--dark-text);
+  overflow-x: hidden;
+}
+
+/* Contêiner Base (orcamento-container) - Ajustado para conter os novos fundos */
 .orcamento-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
- 
-  position: relative; 
+  position: relative; /* Essencial para o posicionamento absoluto da imagem de fundo */
+  overflow: hidden;
+  z-index: 0; /* Base do z-index */
 }
 
+/* Estilos da Imagem de Fundo (referenciando diretamente a pasta public) */
+.background-image { /* Esta classe vai para um div dentro do orcamento-container no JSX */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/image.png"); /* Caminho direto para a pasta public */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center; /* Para mostrar mais das silhuetas e menos aproximado */
+  opacity: 1; /* Transparência total para a imagem base */
+  z-index: -2; /* Fica atrás do conteúdo e do overlay */
+  filter: brightness(0.7) contrast(2.0) saturate(0.8); /* Filtros para as silhuetas */
+}
+
+
+/* Overlay semi-transparente para melhorar o contraste do conteúdo */
+.orcamento-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3); /* Overlay branco semi-transparente */
+  z-index: -1; /* Fica entre a imagem e o conteúdo */
+}
+
+/* Estilização do Cabeçalho */
 .header {
-  background-color: transparent; 
-  padding: 15px 20px;
+  background-color: var(--white);
+  padding: 15px 40px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center; 
-
-  width: 300px; 
-  margin: 20px auto 0; 
-  position: relative; 
+  box-shadow: 0 2px 10px var(--shadow-light);
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.back-button {
-  
-  display: none;
+.logo-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 .logo {
   display: flex;
-  align-items: center;
-  font-size: 1.5em; 
-  font-weight: bold;
-  color: #000; 
-  position: absolute; 
-  top: 40px; 
-  left: 40px;
-  z-index: 10;
+  align-items: baseline;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .logo-blue {
-  color: blue; 
-  margin-right: 5px;
+  color: var(--primary-blue);
+  margin-right: 2px;
 }
 
 .logo-black {
-  color: black; 
+  color: var(--dark-text);
 }
 
 .title-container {
-  background-color: #000; 
-  padding: 10px 150px; 
-  border-radius: 20px; 
+  background: linear-gradient(90deg, var(--party-color-gradient-start), var(--party-color-gradient-end));
+  padding: 10px 30px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .page-title {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
-  color: #fff;
-  margin: 0; 
+  color: var(--white);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+/* Área de Conteúdo Principal (do Chat) - Ocupa a largura total com fundo branco */
 .main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  align-items: center; /* Centraliza o conteúdo interno (barra de pesquisa, mensagens, input) */
+  padding: 20px 40px; /* Preenchimento lateral para o conteúdo, o fundo vai de ponta a ponta */
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: none; /* REMOVIDO: Não terá mais largura máxima */
+  margin: 0; /* REMOVIDO: Margem lateral automática; agora colado no topo (abaixo do header) */
+  background-color: var(--white); /* ATENÇÃO: Fundo branco para a área do chat! */
+  border-radius: 0; /* REMOVIDO: Cantos arredondados, já que vai de ponta a ponta */
+  box-shadow: none; /* REMOVIDO: Sombra, já que vai de ponta a ponta */
+  box-sizing: border-box;
+  z-index: 1; /* Garante que o conteúdo principal fique acima do overlay */
 }
 
-.input-container {
-  background-color: #000000;
+/* Barra de Pesquisa */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-grey);
   border-radius: 25px;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 500px;
-  margin-left: 20px; 
-  margin-right: auto; 
+  padding: 8px 15px;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--accent-blue-light);
 }
 
-.user-icon {
-  background-color: #333; 
-  border-radius: 50%;
-  padding: 10px;
-  margin-right: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.user-icon svg {
-  width: 20px;
-  height: 20px;
-  color: #fff; 
-}
-
-.text-input {
+.search-input {
   flex-grow: 1;
-  color: #ffffff;
+  border: none;
+  background: transparent;
+  padding: 5px 10px;
+  font-size: 0.95em;
+  outline: none;
+  color: var(--dark-text);
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  color: var(--accent-blue-dark);
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s ease;
+}
+
+.search-button:hover {
+  transform: scale(1.1);
+}
+
+/* Área de Exibição das Mensagens */
+.message-display {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 700px;
+  padding: 0 10px;
+  overflow-y: auto;
+  max-height: calc(100vh - 280px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+  margin-bottom: 15px;
+}
+
+/* Bolhas de Mensagem Individuais */
+.message {
+  display: flex;
+  width: 100%;
+}
+
+.message-user {
+  justify-content: flex-end;
+}
+
+.message-bot {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 75%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  line-height: 1.4;
+  word-wrap: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.message-user .message-bubble {
+  background-color: var(--user-bubble-bg);
+  color: var(--dark-text);
+  border-bottom-right-radius: 4px;
+}
+
+.message-bot .message-bubble {
+  background-color: var(--bot-bubble-bg);
+  color: var(--dark-text);
+  border: 1px solid var(--accent-blue-light);
+  border-bottom-left-radius: 4px;
+}
+
+/* Área de Input para Novas Mensagens */
+.input-area {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  background-color: var(--white);
+  border-radius: 30px;
+  padding: 8px 15px;
+  box-shadow: 0 5px 15px var(--shadow-light);
+  border: 1px solid var(--accent-blue-medium);
+}
+
+.message-input {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 10px 15px;
   font-size: 1em;
+  outline: none;
+  color: var(--dark-text);
+}
+
+.message-input::placeholder {
+  color: #888;
 }
 
 .send-button {
-  background-color: #000;
-  color: #fff;
+  background: linear-gradient(45deg, var(--party-color-gradient-start), var(--party-color-gradient-end));
+  color: var(--white);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.send-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .send-button svg {
@@ -122,39 +282,96 @@
   height: 20px;
 }
 
+/* Rodapé (opcional, pode ser adaptado ou removido) */
 .footer {
-  background-color: #f0f0f0;
-  padding-bottom: 20px;
-}
-
-.silhouette-background {
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding: 15px;
+  text-align: center;
+  color: #888;
+  font-size: 0.85em;
+  background-color: var(--white);
+  box-shadow: 0 -2px 10px var(--shadow-light);
+  z-index: 10;
   width: 100%;
-  height: 100%;
-  background-image: url('/image.png'); 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 2;
-  z-index: -2;
-}
-cabecalho {
-  /* Se já tiver display: flex */
-  justify-content: space-between; /* Ou space-around, space-evenly, etc., dependendo do layout desejado */
-  align-items: center; /* Manter alinhamento vertical */
-  /* Outros estilos do cabeçalho */
+  box-sizing: border-box;
+  margin-top: auto;
 }
 
-.perfil-icon-container {
-  position: relative;
-  cursor: pointer;
-  /* Adicione isso para garantir que fique à direita */
-  margin-left: auto;
-  display: flex; /* Para possível alinhamento interno se necessário */
-  justify-content: center; /* Centraliza o ícone dentro do container */
-  align-items: center;
-  width: auto; /* Ajuste conforme necessário */
-  padding: 5px; /* Adicione um pouco de padding ao redor do ícone */
+
+/* --- Design Responsivo --- */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .logo {
+    font-size: 24px;
+  }
+  .title-container {
+    padding: 8px 20px;
+  }
+  .page-title {
+    font-size: 1em;
+  }
+  .main {
+    padding: 15px 20px;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .message-display {
+    max-height: calc(100vh - 250px);
+  }
+  .message-bubble {
+    max-width: 85%;
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+  .search-bar-container,
+  .input-area {
+    width: 100%;
+    max-width: none;
+    padding: 8px 10px;
+  }
+  .message-input {
+    padding: 8px 10px;
+  }
+  .send-button {
+    width: 40px;
+    height: 40px;
+  }
+  .send-button svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 22px;
+  }
+  .page-title {
+    font-size: 0.9em;
+  }
+  .main {
+    padding: 10px 15px;
+  }
+  .message-display {
+    max-height: calc(100vh - 220px);
+    gap: 8px;
+  }
+  .message-bubble {
+    font-size: 0.85em;
+  }
+  .search-input,
+  .message-input {
+    font-size: 0.85em;
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }

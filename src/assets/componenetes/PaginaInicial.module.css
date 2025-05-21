@@ -1,9 +1,8 @@
 /* src/assets/componenetes/PaginaInicial.module.css */
 
-/* Variáveis CSS para cores e fontes (facilita a manutenção) */
 :root {
-    --primary-blue: #007bff; /* Azul vibrante */
-    --primary-purple: #8A2BE2; /* Roxo vibrante */
+    --primary-blue: #007bff;
+    --primary-purple: #8A2BE2;
     --dark-text: #333;
     --light-text: #f0f0f0;
     --card-bg: #ffffff;
@@ -13,13 +12,17 @@
     --shadow-light: rgba(0, 0, 0, 0.1);
     --shadow-medium: rgba(0, 0, 0, 0.2);
     --shadow-strong: rgba(0, 0, 0, 0.3);
+    --party-color-1: #ff007f;
+    --party-color-2: #00ffbf;
+    --party-color-3: #ffea00;
+    --party-color-4: #8a00ff;
+    --party-color-5: #ff5500;
 }
 
-/* Base e Animações */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Fonte mais moderna e legível */
-    background-color: #f4f7fa; /* Fundo suave */
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fa;
     color: var(--dark-text);
 }
 
@@ -45,70 +48,95 @@ body {
     100% { transform: scale(1); }
 }
 
-/* Container Geral da Página */
-.fornecedor-container { /* Renomeado de cadastro-container para ser específico */
+@keyframes partyBackgroundPan {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.fornecedor-container {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     overflow-x: hidden;
-    color: var(--dark-text); /* Cor de texto padrão */
+    color: var(--dark-text);
     z-index: 0;
 }
 
-/* Imagem de Fundo */
 .background-image {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/image.png'); /* Certifique-se de que este caminho está correto para o seu `/public` */
+    background-image: url('/image.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom center;
-    /* --- ALTERAÇÕES AQUI --- */
-    filter: brightness(0.9) contrast(1.5); /* Aumenta o brilho e contraste da imagem */
-    opacity: 0.9; /* Aumenta a opacidade da imagem */
-    /* --- FIM DAS ALTERAÇÕES --- */
+    filter: brightness(0.2) contrast(4);
+    opacity: 1;
     z-index: -2;
-    animation: fadeIn 1.5s ease-out;
 }
 
-/* Overlay para contraste */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* --- ALTERAÇÕES AQUI --- */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7)); /* Gradiente mais transparente */
-    /* --- FIM DAS ALTERAÇÕES --- */
     z-index: -1;
+    background:
+        linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.4) 40%,
+            rgba(255, 255, 255, 0.1) 70%,
+            rgba(255, 255, 255, 0) 100%
+        ),
+        linear-gradient(
+            270deg,
+            var(--party-color-1),
+            var(--party-color-2),
+            var(--party-color-3),
+            var(--party-color-4),
+            var(--party-color-5)
+        );
+    background-size: auto, 400% 400%;
+    background-position: 0% 0%, 0% 0%;
+    animation: none, partyBackgroundPan 45s ease infinite alternate;
 }
 
-/* Header aprimorado */
 .header {
     width: 100%;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.95); /* Fundo quase opaco */
-    box-shadow: 0 4px 15px var(--shadow-light); /* Sombra mais elegante */
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px var(--shadow-light);
     z-index: 10;
-    position: sticky; /* Fixa o header no topo ao rolar */
+    position: sticky;
     top: 0;
-    backdrop-filter: blur(5px); /* Efeito de desfoque moderno */
+    backdrop-filter: blur(5px);
 }
 
-/* Logo */
 .logo {
     display: flex;
     align-items: baseline;
-    font-family: 'Montserrat', sans-serif; /* Fonte mais impactante */
+    font-family: 'Montserrat', sans-serif;
     font-size: 36px;
     font-weight: 700;
 }
@@ -127,17 +155,16 @@ body {
     color: var(--dark-text);
 }
 
-/* Navigation Bar */
-.nav-bar { /* Renomeado de cabecalho */
+.nav-bar {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espaçamento entre os itens */
+    gap: 20px;
     width: 100%;
-    max-width: 700px; /* Aumenta a largura máxima */
-    justify-content: flex-end; /* Alinha itens à direita */
+    max-width: 700px;
+    justify-content: flex-end;
 }
 
-.back-button { /* Botão de voltar aprimorado */
+.back-button {
     background-color: transparent;
     border: 2px solid var(--primary-blue);
     color: var(--primary-blue);
@@ -159,23 +186,22 @@ body {
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
-/* Search Bar */
-.search-bar { /* Renomeado de barra-pesquisa */
+.search-bar {
     display: flex;
     align-items: center;
-    background-color: #f0f0f0; /* Fundo mais claro para a barra de pesquisa */
-    border-radius: 30px; /* Mais arredondado */
+    background-color: #f0f0f0;
+    border-radius: 30px;
     padding: 8px 20px;
     flex-grow: 1;
-    box-shadow: inset 0 1px 3px var(--shadow-light); /* Sombra interna sutil */
+    box-shadow: inset 0 1px 3px var(--shadow-light);
     transition: all 0.3s ease;
 }
 
 .search-bar:focus-within {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4), inset 0 1px 3px var(--shadow-medium); /* Efeito de foco */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4), inset 0 1px 3px var(--shadow-medium);
 }
 
-.search-input { /* Renomeado de input[type="text"] */
+.search-input {
     background: none;
     border: none;
     color: var(--dark-text);
@@ -183,17 +209,17 @@ body {
     margin-right: 10px;
     width: 100%;
     font-size: 1em;
-    outline: none; /* Remove outline padrão */
+    outline: none;
 }
 
 .search-input::placeholder {
     color: #888;
 }
 
-.search-button { /* Renomeado de botao-pesquisar */
+.search-button {
     background: none;
     border: none;
-    color: var(--primary-blue); /* Ícone azul */
+    color: var(--primary-blue);
     cursor: pointer;
     padding: 8px;
     transition: transform 0.2s ease;
@@ -203,35 +229,70 @@ body {
     transform: scale(1.1);
 }
 
-/* Profile Icon */
-.profile-icon-container { /* Renomeado de perfil-icon-container */
+/* Container do ícone de perfil (MANTIDO) */
+.profile-icon-container {
+    position: relative; /* FUNDAMENTAL para posicionar a aba branca */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px; /* Adiciona um pouco de padding para facilitar o hover */
+    border-radius: 50%; /* Se você quiser que a área de hover seja arredondada */
+    transition: background-color 0.2s ease;
+    z-index: 20; /* Garante que o ícone e a aba fiquem por cima de outros elementos */
+
+    /* Estilos do seu perfil-icon-container original */
     width: 45px;
     height: 45px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple)); /* Gradiente de cor */
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.5em;
-    cursor: pointer;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    /* Mantém os estilos originais do seu projeto */
 }
 
+/* Hover do container do ícone de perfil (MANTIDO) */
 .profile-icon-container:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.2); /* Um leve destaque no hover do ícone */
+    transform: translateY(-3px) scale(1.05); /* Mantém seu transform original */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Mantém sua sombra original */
 }
 
+/* Estilos para a aba de informações do perfil (ADICIONADO) */
+.profile-info-tab {
+  position: absolute;
+  top: calc(100% + 10px); /* Posiciona a aba abaixo do ícone, com 10px de espaçamento */
+  right: 0; /* Alinha a aba à direita do container do ícone */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  padding: 15px 20px;
+  width: 220px; /* Largura da aba */
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.5; /* Espaçamento entre as linhas */
+  text-align: left; /* Garante que o texto fique à esquerda dentro da aba */
+  opacity: 1; /* Garante que ela seja visível (React controla a visibilidade) */
+  visibility: visible; /* Garante que ela seja visível */
+  /* transition: opacity 0.3s ease; Se quisesse uma animação de fade */
+}
 
-/* Conteúdo Principal dos Fornecedores */
-.main-content-fornecedor { /* Novo nome de classe */
+.profile-info-tab p {
+  margin: 0; /* Remove margens padrão dos parágrafos dentro da aba */
+  padding: 0;
+}
+
+.profile-info-tab strong {
+  color: #1a1a1a;
+  font-size: 1rem;
+}
+
+.main-content-fornecedor {
     flex-grow: 1;
     padding: 40px 20px;
     width: 100%;
-    max-width: 1200px; /* Aumenta a largura máxima para a grade */
-    margin-top: 30px; /* Espaço abaixo do header */
+    max-width: 1200px;
+    margin-top: 30px;
     text-align: center;
     animation: fadeInSlideUp 0.8s ease-out forwards;
 }
@@ -239,63 +300,62 @@ body {
 .section-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 3em;
-    color: var(--dark-text);
+    color: white;
     margin-bottom: 10px;
     font-weight: 800;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
 .section-subtitle {
     font-size: 1.2em;
-    color: #666;
+    color: #f0f0f0;
     margin-bottom: 40px;
     font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Grid de Cards */
-.cards-grid { /* Renomeado de conteudo-principal */
-    display: grid; /* Usa Grid para melhor controle */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 colunas em telas maiores, adaptável */
-    gap: 30px; /* Mais espaço entre os cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
     justify-content: center;
-    align-items: stretch; /* Garante que os cards tenham a mesma altura se o conteúdo variar */
+    align-items: stretch;
 }
 
 .no-results {
     font-size: 1.2em;
     color: #777;
     text-align: center;
-    grid-column: 1 / -1; /* Ocupa toda a largura da grid */
+    grid-column: 1 / -1;
     padding: 50px 0;
 }
 
-/* Card de Produto */
-.product-card { /* Renomeado de card-opcao */
+.product-card {
     background-color: var(--card-bg);
-    border-radius: 15px; /* Mais arredondado */
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px var(--shadow-medium); /* Sombra mais pronunciada */
+    box-shadow: 0 10px 30px var(--shadow-medium);
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
     cursor: pointer;
-    animation: fadeInScale 0.6s ease-out backwards; /* Animação por card */
-    animation-delay: var(--delay); /* Para animação em cascata */
-    height: 100%; /* Garante que o card ocupe a altura total da célula do grid */
+    animation: fadeInScale 0.6s ease-out backwards; /* Certifique-se de ter fadeInScale definido em outro lugar se estiver usando, ou remova */
+    animation-delay: var(--delay);
+    height: 100%;
 }
 
 .product-card:hover {
-    transform: translateY(-8px) scale(1.02); /* Efeito de elevação e zoom */
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 0 15px 40px var(--shadow-strong);
 }
 
-.card-image-wrapper { /* Renomeado de card-imagem */
-    height: 180px; /* Aumenta a altura da imagem */
+.card-image-wrapper {
+    height: 180px;
     overflow: hidden;
     border-bottom: 1px solid #eee;
 }
 
-.card-img { /* Renomeado de card-imagem img */
+.card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -303,16 +363,16 @@ body {
 }
 
 .product-card:hover .card-img {
-    transform: scale(1.08); /* Zoom na imagem ao passar o mouse */
+    transform: scale(1.08);
 }
 
-.card-info { /* Renomeado de card-texto */
+.card-info {
     padding: 20px;
     text-align: center;
-    flex-grow: 1; /* Permite que o info cresça e empurre as ações para baixo */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Espaço entre título e ações */
+    justify-content: space-between;
 }
 
 .card-title {
@@ -323,21 +383,21 @@ body {
     margin-bottom: 15px;
 }
 
-.card-actions { /* Renomeado de card-acoes */
+.card-actions {
     display: flex;
-    flex-direction: row; /* Botões lado a lado */
-    gap: 10px; /* Espaço entre os botões */
+    flex-direction: row;
+    gap: 10px;
     margin-top: 15px;
     justify-content: center;
     align-items: center;
 }
 
-.budget-button, /* Renomeado de botao-orcamento */
-.call-button { /* Renomeado de botao-ligar */
-    flex: 1; /* Ocupam o mesmo espaço */
+.budget-button,
+.call-button {
+    flex: 1;
     padding: 12px 15px;
     border: none;
-    border-radius: 30px; /* Mais arredondado */
+    border-radius: 30px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -362,7 +422,7 @@ body {
 }
 
 .call-button {
-    background-color: #f0f0f0; /* Cinza claro */
+    background-color: #f0f0f0;
     color: var(--dark-text);
     border: 1px solid #ddd;
 }
@@ -374,19 +434,17 @@ body {
 }
 
 .call-button svg {
-    color: #4CAF50; /* Ícone de telefone verde */
+    color: #4CAF50;
 }
 
-/* Rodapé (se mantiver) */
-.rodape { /* Não é mais estritamente necessário se o background-image for fixo */
-    display: none; /* Ocultei, pois o background-image já cobre */
+.rodape {
+    display: none;
 }
 
 .fundo-silhuetas {
-    display: none; /* Ocultar */
+    display: none;
 }
 
-/* Responsividade */
 @media (max-width: 992px) {
     .header {
         padding: 15px 25px;
@@ -396,8 +454,8 @@ body {
     }
     .nav-bar {
         gap: 15px;
-        flex-wrap: wrap; /* Permite que a barra de navegação quebre a linha */
-        justify-content: center; /* Centraliza itens quando quebram */
+        flex-wrap: wrap;
+        justify-content: center;
     }
     .main-content-fornecedor {
         padding: 30px 15px;
@@ -413,7 +471,7 @@ body {
         gap: 20px;
     }
     .product-card {
-        width: 100%; /* Em telas menores, ocupa a largura total */
+        width: 100%;
     }
     .card-image-wrapper {
         height: 160px;
@@ -439,18 +497,28 @@ body {
         margin: 0;
     }
     .profile-icon-container {
-        position: static; /* Remove o posicionamento absoluto */
-        margin-top: 10px; /* Espaço da barra de pesquisa */
+        position: static; /* Ajusta a posição para mobile para não sobrepor */
+        margin-top: 10px;
+    }
+    /* Estilos para a aba em mobile */
+    .profile-info-tab {
+        width: 180px; /* Reduz a largura em telas menores */
+        font-size: 0.85rem;
+        padding: 10px 15px;
+        top: calc(100% + 5px); /* Ajusta a posição */
+        right: auto; /* Desfaz o alinhamento à direita */
+        left: 50%; /* Centraliza a aba horizontalmente */
+        transform: translateX(-50%); /* Ajusta a centralização */
     }
     .main-content-fornecedor {
-        margin-top: 150px; /* Ajusta o espaço superior devido ao header maior */
+        margin-top: 150px;
     }
     .cards-grid {
-        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+        grid-template-columns: 1fr;
         gap: 15px;
     }
     .product-card {
-        max-width: 350px; /* Limita a largura do card mesmo em coluna única */
+        max-width: 350px;
         margin: 0 auto;
     }
     .section-title {
