@@ -9,20 +9,17 @@ function AboutUs() {
       {/* Imagem de fundo e overlay */}
       <div className="background-image"></div>
 
-      {/* Logo PartyLink e Navegação no cabeçalho */}
-      <header className="header">
-        <div className="logo">
-          <Link to="/" className="logo-link">
+      {/* Cabeçalho da página About Us - EXCLUSIVO */}
+      {/* Usando uma classe mais específica para o cabeçalho da AboutUs */}
+      <header className="about-us-header"> 
+        {/* Usando uma classe mais específica para o logo na AboutUs */}
+        <div className="about-us-logo-wrapper"> 
+          <Link to="/" className="about-us-logo-link"> {/* Link mantido para retornar à home */}
             <span className="logo-blue">Party</span>
             <span className="logo-black">Link</span>
           </Link>
         </div>
-        <nav className="nav-buttons">
-          <Link to="/login" className="nav-button">Login</Link>
-          <Link to="/cadastro" className="nav-button">Cadastre-se</Link>
-          <Link to="/experiencias" className="nav-button">Experiências</Link>
-          <Link to="/fornecedor" className="nav-button">Fornecedores</Link>
-        </nav>
+        {/* NENHUM BOTÃO DE NAVEGAÇÃO AQUI */}
       </header>
 
       <main className="about-us-content">

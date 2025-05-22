@@ -15,7 +15,8 @@ function HomePage() {
 
         <nav className="nav-buttons">
           <Link to="/cadastro" className="nav-button">LOGIN</Link>
-          <button className="nav-button">LOGIN FORNECEDOR</button>
+          {/* ALTERAÇÃO AQUI: De button para Link e adicionando a rota */}
+          <Link to="/fornecedor/login" className="nav-button">LOGIN FORNECEDOR</Link>
           {/* Atualize este link para a nova página de experiências */}
           <Link to="/experiencias" className="nav-button">EXPERIÊNCIAS</Link>
         </nav>

@@ -99,7 +99,7 @@ function CadastroNovoUsuario() {
       </form>
 
       <div className={styles['form-links']}>
-        <Link to="/cadastro" className={styles['form-link']}>Já tem conta? Faça Login!</Link>
+      
       </div>
     </div>
   );

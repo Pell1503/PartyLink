@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './OrcamentoPage.module.css';
 import { Link } from 'react-router-dom';
-// Não precisamos mais importar a imagem aqui, pois ela será referenciada diretamente no CSS
-// import silhuetaImage from '../assets/image.png';
+
 
 function OrcamentoPage() {
   const [messages, setMessages] = useState([]);

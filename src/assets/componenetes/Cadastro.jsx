@@ -3,7 +3,7 @@ import styles from './Cadastro.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Cadastro() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(''); // Nota: o nome da variável é 'email', mas a lógica de login usa 'pedro' como username
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -11,12 +11,12 @@ function Cadastro() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const correctEmail = 'pedro';
+    const correctEmail = 'pedro'; // Mantém o usuário fixo 'pedro' para a lógica
     const correctPassword = '1234';
 
     if (email === correctEmail && password === correctPassword) {
       setError('');
-      navigate('/fornecedor');
+      navigate('/fornecedor'); // Ou para onde este login de usuário deve redirecionar
     } else {
       setError('Usuário ou senha incorretos. Tente novamente.');
     }
@@ -28,7 +28,7 @@ function Cadastro() {
       <div className={styles['background-image']}></div>
 
       {/* Overlay semi-transparente para melhorar o contraste (REATIVADO) */}
-      <div className={styles['overlay-cadastro']}></div> {/* Nova classe para o overlay desta página */}
+      <div className={styles['overlay-cadastro']}></div>
 
       {/* Logo PartyLink no canto superior esquerdo */}
       <div className={styles.logo}>
@@ -43,7 +43,7 @@ function Cadastro() {
       <form className={styles.formulario} onSubmit={handleLogin}>
         <input
           type="text"
-          placeholder="Seu usuário (pedro)"
+          placeholder="Seu usuário" // ALTERADO AQUI: Removido "(pedro)"
           className={styles.input}
           value={email}
           onChange={(e) => setEmail(e.target.value)}

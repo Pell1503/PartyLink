@@ -49,10 +49,10 @@
   background-position: bottom center; /* Menos aproximado, silhuetas mais pretas */
   opacity: 1;
   z-index: -2;
-
 }
 
 /* Overlay semi-transparente (consistente) */
+/* Usando o pseudo-elemento ::before no container, que é um padrão seguro */
 .about-us-container::before {
   content: '';
   position: absolute;
@@ -64,12 +64,12 @@
   z-index: -1;
 }
 
-/* Header (copiado da HomePage, com pequenas adaptações) */
-.header {
+/* NOVO: Cabeçalho ESPECÍFICO para AboutUs */
+.about-us-header {
   width: 100%;
   padding: 25px 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centraliza horizontalmente o conteúdo */
   align-items: center;
   z-index: 10;
   position: relative;
@@ -78,19 +78,23 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
+/* NOVO: Wrapper do logo ESPECÍFICO para AboutUs */
+.about-us-logo-wrapper {
   display: flex;
   align-items: baseline;
   font-family: 'Montserrat', sans-serif;
   font-size: 38px;
   font-weight: 700;
+  /* Sem posicionamento absoluto aqui, pois o flexbox do header já centraliza */
 }
 
-.logo-link { /* Novo estilo para o link do logo */
+/* NOVO: Estilo para o link do logo ESPECÍFICO para AboutUs */
+.about-us-logo-link {
   text-decoration: none;
-  color: inherit; /* Mantém a cor do texto definida pelos spans */
+  color: inherit; /* Mantém a cor definida pelos spans */
 }
 
+/* Cores do logo (podem ser globais ou definidas por componente) */
 .logo-blue {
   color: #007bff;
   margin-right: 2px;
@@ -100,35 +104,7 @@
   color: #333;
 }
 
-.nav-buttons {
-  display: flex;
-  gap: 15px;
-  z-index: 11;
-  position: relative;
-}
-
-.nav-button {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 50px;
-  background-color: #333;
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 12;
-  position: relative;
-}
-
-.nav-button:hover {
-  background-color: #007bff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+/* REMOVIDO: Regras para .nav-buttons e .nav-button */
 
 
 /* Conteúdo Principal da Página Sobre Nós */
@@ -190,23 +166,13 @@
 
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
+  .about-us-header { /* Usando a nova classe específica */
     padding: 20px;
+    justify-content: center;
   }
 
-  .nav-buttons {
-    margin-top: 15px;
-    gap: 10px;
-  }
-
-  .logo {
+  .about-us-logo-wrapper { /* Usando a nova classe específica */
     font-size: 32px;
-  }
-
-  .nav-button {
-    padding: 10px 20px;
-    font-size: 0.85rem;
   }
 
   .about-us-content {
@@ -230,21 +196,11 @@
 }
 
 @media (max-width: 480px) {
-  .header {
+  .about-us-header { /* Usando a nova classe específica */
     padding: 15px;
   }
 
-  .nav-buttons {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav-button {
-    width: 100%;
-    margin-right: 0;
-  }
-
-  .logo {
+  .about-us-logo-wrapper { /* Usando a nova classe específica */
     font-size: 28px;
   }
 
