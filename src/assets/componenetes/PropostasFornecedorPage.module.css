@@ -1,0 +1,537 @@
+
+/* Animações */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.propostas-fornecedor-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  background-color: #eef2f6; /* Fundo cinza azulado muito suave */
+  z-index: 0;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/image.png'); /* Caminho direto para a pasta public */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  opacity: 0.9; /* Aumentado para 90% de visibilidade */
+  z-index: -2;
+  /* Ajustes no filtro para deixar as silhuetas mais aparentes */
+  filter: brightness(0.65) contrast(1.8) saturate(0.9); /* Aumenta contraste e saturação */
+}
+
+.overlay {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* Overlay branco mais transparente (40%) */
+  z-index: -1;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.98); /* Quase totalmente opaco */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra mais difusa */
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.logo-blue {
+  color: #007bff; /* Azul primário */
+  margin-right: 2px;
+}
+
+.logo-black {
+  color: #333;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.header-button {
+  padding: 10px 25px;
+  background-color: #007bff; /* Azul primário */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2); /* Sombra mais colorida */
+}
+
+.header-button:hover {
+  background-color: #0056b3; /* Tom mais escuro de azul */
+  transform: translateY(-3px); /* Mais movimento */
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Seção de Título/Subtítulo (Propostas / Clientes) */
+.section-title-wrapper {
+  width: 100%;
+  max-width: 1000px; /* Ainda mais largo para o conteúdo */
+  text-align: center;
+  margin-top: 50px; /* Mais espaço do header */
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.section-title {
+  background-color: #343a40; /* Preto bem escuro/quase grafite */
+  color: white;
+  padding: 14px 35px; /* Mais padding */
+  border-radius: 40px; /* Mais arredondado */
+  font-size: 1.6rem; /* Maior */
+  font-weight: 700;
+  display: inline-block;
+  animation: fadeInSlide 0.8s ease-out forwards;
+  letter-spacing: 1px; /* Mais espaçamento entre letras */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra leve */
+}
+
+.clients-title {
+  background-color: rgba(255, 255, 255, 0.95); /* Fundo quase branco para maior contraste com o fundo */
+  color: #495057; /* Cinza escuro para o texto */
+  padding: 14px 35px;
+  border-radius: 40px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px; /* Mais espaço com o ícone */
+  margin-top: 30px; /* Mais espaço */
+  animation: fadeInSlide 0.8s ease-out forwards;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  border: 1px solid #dee2e6; /* Borda sutil */
+  letter-spacing: 1px;
+}
+
+.clients-icon {
+  width: 28px; /* Maior */
+  height: 28px;
+  color: #495057;
+}
+
+/* --- ESTILOS PARA A BARRA DE PESQUISA --- */
+.search-bar-wrapper {
+  width: 100%;
+  max-width: 600px; /* Largura da barra de pesquisa */
+  margin-top: 30px; /* Espaço após o título "PROPOSTAS" */
+  position: relative; /* Para posicionar o ícone de pesquisa */
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  border-radius: 30px; /* Arredonda o wrapper */
+  display: flex; /* Para alinhar o input e o ícone */
+  align-items: center;
+  background-color: #ffffff; /* Fundo branco para a barra de pesquisa */
+  padding: 8px 20px; /* Padding interno */
+}
+
+.search-input {
+  flex-grow: 1; /* Faz o input ocupar o espaço disponível */
+  padding: 10px 0; /* Padding interno do input */
+  border: none;
+  outline: none; /* Remove o contorno ao focar */
+  font-size: 1.1rem;
+  color: #343a40;
+  background: transparent; /* Permite que o fundo branco do wrapper apareça */
+}
+
+.search-input::placeholder {
+  color: #adb5bd; /* Cor do placeholder */
+}
+
+.search-icon {
+  color: #6c757d; /* Cor do ícone de pesquisa */
+  margin-left: 10px; /* Espaço entre o texto e o ícone */
+  width: 24px;
+  height: 24px;
+}
+/* --- FIM DOS ESTILOS DA BARRA DE PESQUISA --- */
+
+
+/* Área de Listagem de Clientes/Propostas */
+.clients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 35px;
+  z-index: 1;
+  padding-bottom: 60px;
+}
+
+.client-card {
+  background-color: #ffffff; /* Fundo branco puro */
+  color: #343a40; /* Texto escuro */
+  padding: 30px 40px; /* Mais padding interno */
+  border-radius: 16px; /* Mais arredondado */
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Mais espaço interno */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); /* Sombra mais elegante e difusa */
+  animation: fadeInScale 0.7s ease-out forwards;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Curva de animação suave */
+  border-left: 8px solid #007bff; /* Borda esquerda mais proeminente e primária */
+}
+
+.client-card:hover {
+  transform: translateY(-10px); /* Mais destaque no hover */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12); /* Sombra mais forte no hover */
+}
+
+.client-avatar {
+  background-color: #e9ecef; /* Cinza muito claro */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ced4da;
+}
+
+.avatar-icon {
+  width: 40px;
+  height: 40px;
+  color: #6c757d;
+}
+
+.client-info {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.client-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #212529;
+}
+
+.client-request {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #495057;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.action-button {
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.action-button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.action-button.check {
+  color: #28a745;
+}
+
+.action-button.check:hover {
+  background-color: #d4edda;
+}
+
+.action-button.delete {
+  color: #dc3545;
+}
+
+.action-button.delete:hover {
+  background-color: #f8d7da;
+}
+
+.action-icon {
+  width: 26px;
+  height: 26px;
+}
+
+/* Estilo para botão desabilitado */
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #e9ecef;
+  box-shadow: none;
+  transform: none;
+}
+
+.no-proposals-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-top: 40px;
+  animation: fadeInSlide 1s ease-out forwards;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 992px) {
+  .header {
+    padding: 15px 40px;
+  }
+  .section-title, .clients-title {
+    font-size: 1.4rem;
+    padding: 12px 30px;
+  }
+  .clients-icon {
+    width: 26px;
+    height: 26px;
+  }
+  .search-bar-wrapper {
+    max-width: 500px;
+  }
+  .search-input {
+    font-size: 1rem;
+  }
+  .clients-list {
+    max-width: 900px;
+  }
+  .client-card {
+    padding: 25px 30px;
+  }
+  .client-avatar {
+    width: 60px;
+    height: 60px;
+  }
+  .avatar-icon {
+    width: 35px;
+    height: 35px;
+  }
+  .client-name {
+    font-size: 1.4rem;
+  }
+  .client-request {
+    font-size: 1rem;
+  }
+  .action-button {
+    width: 50px;
+    height: 50px;
+  }
+  .action-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .header-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .header-button {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .section-title, .clients-title {
+    font-size: 1.2rem;
+    padding: 10px 25px;
+    margin-top: 25px;
+  }
+
+  .clients-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .search-bar-wrapper {
+    max-width: 90%;
+    padding: 6px 15px;
+  }
+  .search-input {
+    font-size: 0.95rem;
+  }
+
+  .clients-list {
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .client-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+    border-left: none;
+    border-top: 6px solid #007bff;
+  }
+
+  .client-avatar {
+    width: 55px;
+    height: 55px;
+  }
+
+  .avatar-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .client-name {
+    font-size: 1.3rem;
+  }
+
+  .client-request {
+    font-size: 0.95rem;
+  }
+
+  .card-actions {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .action-button {
+    width: 45px;
+    height: 45px;
+  }
+
+  .action-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  .section-title, .clients-title {
+    font-size: 1.1rem;
+    padding: 8px 18px;
+  }
+
+  .clients-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .search-input {
+    font-size: 0.9rem;
+  }
+
+  .clients-list {
+    padding: 5px;
+  }
+
+  .client-card {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .client-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .avatar-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .client-name {
+    font-size: 1.2rem;
+  }
+
+  .client-request {
+    font-size: 0.9rem;
+  }
+
+  .action-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .action-icon {
+    width: 20px;
+    height: 20px;
+  }
+}

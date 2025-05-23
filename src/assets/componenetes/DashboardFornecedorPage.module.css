@@ -1,0 +1,427 @@
+
+/* src/assets/componenetes/DashboardFornecedorPage.module.css */
+
+/* Animações */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  background-color: #eef2f6; /* Fundo cinza azulado muito suave */
+  z-index: 0;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/image.png'); /* Caminho direto para a pasta public */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  opacity: 0.9; /* Visibilidade alta */
+  z-index: -2;
+  filter: brightness(0.65) contrast(1.8) saturate(0.9);
+}
+
+.overlay {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* Overlay branco mais transparente (40%) */
+  z-index: -1;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.logo-blue {
+  color: #007bff;
+  margin-right: 2px;
+}
+
+.logo-black {
+  color: #333;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.header-button {
+  padding: 10px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2);
+}
+
+.header-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  width: 100%;
+  max-width: 1200px; /* Largura maior para o dashboard */
+  padding: 30px;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Espaçamento entre as seções */
+  margin-top: 40px;
+  animation: fadeInSlideUp 0.8s ease-out forwards;
+}
+
+.welcome-section {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid #007bff;
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #212529;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.welcome-subtitle {
+  font-size: 1.3rem;
+  color: #495057;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.dashboard-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo de colunas */
+  gap: 30px; /* Espaçamento entre os cartões das seções */
+}
+
+.section-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha o conteúdo à esquerda */
+  gap: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.section-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.section-icon-wrapper {
+  background-color: #e0f2f7; /* Fundo azul claro para o ícone */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-icon {
+  width: 32px;
+  height: 32px;
+  color: #007bff; /* Cor azul primária para o ícone */
+}
+
+.section-title-card {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 5px;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: #6c757d;
+  line-height: 1.6;
+  flex-grow: 1; /* Ocupa espaço para empurrar o botão para baixo */
+}
+
+.section-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2);
+  margin-top: 20px; /* Espaço entre descrição e botão */
+}
+
+.section-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+.section-button-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Métricas e Estatísticas (opcional, pode ser expandido) */
+.metrics-section {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #28a745; /* Cor de destaque para métricas */
+  text-align: center;
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.metrics-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 25px;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+}
+
+.metric-item {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+}
+
+.metric-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #007bff; /* Azul primário para os valores */
+  margin-bottom: 5px;
+}
+
+.metric-label {
+  font-size: 1rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+
+/* Media Queries para Responsividade */
+@media (max-width: 1024px) {
+  .header {
+    padding: 15px 40px;
+  }
+  .dashboard-content {
+    padding: 20px;
+    gap: 30px;
+  }
+  .welcome-title {
+    font-size: 2rem;
+  }
+  .welcome-subtitle {
+    font-size: 1.1rem;
+  }
+  .dashboard-sections {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  .section-card {
+    padding: 25px;
+    gap: 15px;
+  }
+  .section-title-card {
+    font-size: 1.6rem;
+  }
+  .section-description {
+    font-size: 0.95rem;
+  }
+  .metric-value {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+  .dashboard-content {
+    padding: 15px;
+    gap: 25px;
+  }
+  .welcome-title {
+    font-size: 1.8rem;
+  }
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+  .dashboard-sections {
+    grid-template-columns: 1fr; /* Uma única coluna em telas menores */
+    gap: 20px;
+  }
+  .section-card {
+    padding: 20px;
+    gap: 15px;
+  }
+  .section-title-card {
+    font-size: 1.4rem;
+  }
+  .section-button {
+    width: 100%;
+    justify-content: center;
+  }
+  .metrics-title {
+    font-size: 1.8rem;
+  }
+  .metric-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  .metric-value {
+    font-size: 1.8rem;
+  }
+  .metric-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 15px;
+  }
+  .logo {
+    font-size: 30px;
+  }
+  .welcome-title {
+    font-size: 1.6rem;
+  }
+  .welcome-subtitle {
+    font-size: 0.9rem;
+  }
+  .section-card {
+    padding: 18px;
+  }
+  .section-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  .section-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .section-title-card {
+    font-size: 1.2rem;
+  }
+  .section-description {
+    font-size: 0.85rem;
+  }
+  .section-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+  .metric-item {
+    padding: 15px;
+  }
+  .metric-value {
+    font-size: 1.6rem;
+  }
+}

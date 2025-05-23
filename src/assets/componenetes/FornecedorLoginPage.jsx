@@ -11,12 +11,13 @@ function FornecedorLoginPage() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const correctUsername = 'pedro';
-    const correctPassword = '1234';
+    const correctUsername = 'pedro'; // Usuário fixo
+    const correctPassword = '1234'; // Senha fixa
 
     if (username === correctUsername && password === correctPassword) {
       setError('');
-      navigate('/dashboard-fornecedor');
+      // REDIRECIONAMENTO DIRETO PARA A PÁGINA DE PROPOSTAS APÓS LOGIN BEM-SUCEDIDO
+      navigate('/fornecedor/propostas'); // Altera o redirecionamento aqui!
     } else {
       setError('Usuário ou senha incorretos. Tente novamente.');
     }
@@ -37,7 +38,7 @@ function FornecedorLoginPage() {
       <form className={styles.formulario} onSubmit={handleLogin}>
         <input
           type="text"
-          placeholder="Seu usuário" // ALTERADO AQUI: Removido "(pedro)"
+          placeholder="Seu usuário"
           className={styles.input}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -45,7 +46,7 @@ function FornecedorLoginPage() {
         />
         <input
           type="password"
-          placeholder="Senha" // ALTERADO AQUI: Removido "(1234)"
+          placeholder="Senha"
           className={styles.input}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -63,7 +64,7 @@ function FornecedorLoginPage() {
       </form>
 
       <div className={styles['form-links']}>
-       
+        <Link to="/fornecedor/esqueceu-senha"></Link>
         <Link to="/fornecedor/cadastro">Não tem uma conta? Cadastre-se agora!</Link>
       </div>
     </div>
