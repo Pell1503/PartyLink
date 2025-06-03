@@ -24,10 +24,6 @@ Como cliente a tela terá um cabeçalho contendo foto de perfil, logo da Partyli
 
 Nessa areá aparecerá as categorias presentes no mercado,como, comida,bebidas,roupas,etc, ao clicar em uma dessas opções o usuário filtra os fornecedores do produto que escolheu.Além de uma seção contendo fornecedores presentes no app, e caso o cliente se interesse no produto, pode entrar em contato e fazer uma proposta dos produtos que deseja comprar.
 
-# Diagrama de atividades
-
-![Diagrama de atividades](src/assets/img/WhatsApp%20Image%202025-04-29%20at%2019.29.16%20(1).jpeg)
-
 # Protótipos de Lo-Fi (figma)
 
 ## Tela de Cadastro usuário cliente
