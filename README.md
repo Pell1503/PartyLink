@@ -75,6 +75,10 @@ No cabeçalho da tela do usuário fornecedor haverá um simbolo de mensagens, l�
 Desde o inicío do projeto trabalhos juntos para o desenvolvimento da plataforma, juntando nossas ideias e soluções para póssiveis problemas. Alguns problemas surgiram que dificultou o desenolvivemento, como, tempo limitado, limitações tecnicas, e limitação na equipe, a qual era para ser formada com 4 pessoas, e no fim foi apenas dois.
 
 
+## Diagrama de Atividades
+
+
+
 
 
 
