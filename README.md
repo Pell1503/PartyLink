@@ -80,10 +80,7 @@ Apesar das limitações de equipe e dificuldades que surgiram durante o desenvol
 
 ## Diagrama de Atividades
 
-
-
-
-d04102d8c4bd7d933f5683e0ac32e97fc593e8d0
+![Diagrama de atividades](src/assets/img/Diagrama Atualizado.png)
 
 
 
