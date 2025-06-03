@@ -1,0 +1,266 @@
+/* src/assets/componenetes/UserExperiences.css */
+
+.experiences-container {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  background-color: #f8f8f8; /* Fundo claro */
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Importante para o z-index e posicionamento da imagem */
+  overflow: hidden; /* Garante que a imagem de fundo não crie scrollbars */
+  z-index: 0; /* Base do z-index */
+}
+
+/* NOVO: Estilos da Imagem de Fundo (copiado e adaptado da HomePage) */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/image.png"); /* Verifique o caminho da sua imagem */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center; /* Para mostrar mais das silhuetas e menos aproximado */
+  opacity: 1; /* Transparência total para a imagem base */
+  z-index: -2; /* Fica atrás do conteúdo */
+  /* Filtros para as silhuetas mais pretas */
+  filter: brightness(0.7) contrast(2.0) saturate(0.8);
+}
+
+/* NOVO: Overlay semi-transparente para melhorar o contraste do conteúdo */
+.experiences-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3); /* Overlay branco semi-transparente */
+  z-index: -1; /* Fica entre a imagem e o conteúdo */
+}
+
+.experiences-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3em;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+  z-index: 1; /* Garante que o título e o conteúdo fiquem acima do overlay */
+}
+
+.experiences-subtitle {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 40px;
+  text-align: center;
+  max-width: 800px;
+  line-height: 1.5;
+  z-index: 1; /* Garante que o subtítulo e o conteúdo fiquem acima do overlay */
+}
+
+/* Seção para adicionar novo comentário */
+.new-comment-section {
+  width: 100%;
+  max-width: 700px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1; /* Garante que a seção de comentários fique acima do overlay */
+  position: relative; /* Necessário para o z-index */
+}
+
+.comment-input {
+  width: 100%;
+  min-height: 100px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  box-sizing: border-box; /* Garante que padding não adicione à largura/altura */
+}
+
+.submit-comment-button {
+  background-color: #007bff; /* Azul da marca */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px; /* Estilo pílula */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: flex-end; /* Alinha o botão à direita */
+}
+
+.submit-comment-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Lista de Comentários */
+.comments-list {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Espaço entre os cartões de comentário */
+  z-index: 1; /* Garante que a lista de comentários fique acima do overlay */
+  position: relative; /* Necessário para o z-index */
+}
+
+.comment-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee; /* Linha divisória */
+  padding-bottom: 10px;
+}
+
+.comment-author {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.comment-timestamp {
+  font-size: 0.85em;
+  color: #888;
+}
+
+.comment-text {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.reply-button {
+  background-color: #f0f0f0; /* Fundo cinza claro */
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.reply-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Seção de Resposta */
+.reply-input-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #eee; /* Linha tracejada */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reply-input {
+  width: 100%;
+  min-height: 60px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.submit-reply-button {
+  background-color: #007bff; /* Azul da marca */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end;
+}
+
+.submit-reply-button:hover {
+  background-color: #0056b3;
+}
+
+/* Seção de Respostas já existentes */
+.replies-section {
+  margin-top: 20px;
+  padding-left: 20px; /* Recua as respostas */
+  border-left: 3px solid #007bff; /* Linha azul para indicar respostas */
+}
+
+.reply-card {
+  background-color: #f9f9f9; /* Fundo mais claro para respostas */
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.reply-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.reply-author {
+  font-weight: 500;
+  color: #444;
+  font-size: 1em;
+}
+
+.reply-timestamp {
+  font-size: 0.8em;
+  color: #999;
+}
+
+.reply-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .experiences-title {
+    font-size: 2.2em;
+  }
+  .experiences-subtitle {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+  .new-comment-section, .comments-list {
+    padding: 0 15px;
+  }
+  .comment-card, .new-comment-section {
+    padding: 20px;
+  }
+  .submit-comment-button, .submit-reply-button {
+    width: 100%;
+    align-self: center;
+  }
+  .replies-section {
+    padding-left: 10px;
+  }
+}

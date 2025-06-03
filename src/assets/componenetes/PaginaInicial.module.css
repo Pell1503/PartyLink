@@ -1,0 +1,556 @@
+/* src/assets/componenetes/PaginaInicial.module.css */
+
+:root {
+    --primary-blue: #007bff;
+    --primary-purple: #8A2BE2;
+    --dark-text: #333;
+    --light-text: #f0f0f0;
+    --card-bg: #ffffff;
+    --hover-effect: #0056b3;
+    --gradient-start: #6a11cb;
+    --gradient-end: #2575fc;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+    --shadow-strong: rgba(0, 0, 0, 0.3);
+    --party-color-1: #ff007f;
+    --party-color-2: #00ffbf;
+    --party-color-3: #ffea00;
+    --party-color-4: #8a00ff;
+    --party-color-5: #ff5500;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fa;
+    color: var(--dark-text);
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes partyBackgroundPan {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.fornecedor-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    color: var(--dark-text);
+    z-index: 0;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    filter: brightness(0.2) contrast(4);
+    opacity: 1;
+    z-index: -2;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background:
+        linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.4) 40%,
+            rgba(255, 255, 255, 0.1) 70%,
+            rgba(255, 255, 255, 0) 100%
+        ),
+        linear-gradient(
+            270deg,
+            var(--party-color-1),
+            var(--party-color-2),
+            var(--party-color-3),
+            var(--party-color-4),
+            var(--party-color-5)
+        );
+    background-size: auto, 400% 400%;
+    background-position: 0% 0%, 0% 0%;
+    animation: none, partyBackgroundPan 45s ease infinite alternate;
+}
+
+.header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-blue {
+    color: var(--primary-blue);
+    margin-right: 2px;
+}
+
+.logo-black {
+    color: var(--dark-text);
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 700px;
+    justify-content: flex-end;
+}
+
+.back-button {
+    background-color: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.back-button:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 30px;
+    padding: 8px 20px;
+    flex-grow: 1;
+    box-shadow: inset 0 1px 3px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus-within {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4), inset 0 1px 3px var(--shadow-medium);
+}
+
+.search-input {
+    background: none;
+    border: none;
+    color: var(--dark-text);
+    padding: 10px;
+    margin-right: 10px;
+    width: 100%;
+    font-size: 1em;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #888;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.2s ease;
+}
+
+.search-button:hover {
+    transform: scale(1.1);
+}
+
+/* Container do ícone de perfil (MANTIDO) */
+.profile-icon-container {
+    position: relative; /* FUNDAMENTAL para posicionar a aba branca */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px; /* Adiciona um pouco de padding para facilitar o hover */
+    border-radius: 50%; /* Se você quiser que a área de hover seja arredondada */
+    transition: background-color 0.2s ease;
+    z-index: 20; /* Garante que o ícone e a aba fiquem por cima de outros elementos */
+
+    /* Estilos do seu perfil-icon-container original */
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
+    color: white;
+    font-size: 1.5em;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Mantém os estilos originais do seu projeto */
+}
+
+/* Hover do container do ícone de perfil (MANTIDO) */
+.profile-icon-container:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Um leve destaque no hover do ícone */
+    transform: translateY(-3px) scale(1.05); /* Mantém seu transform original */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Mantém sua sombra original */
+}
+
+/* Estilos para a aba de informações do perfil (ADICIONADO) */
+.profile-info-tab {
+  position: absolute;
+  top: calc(100% + 10px); /* Posiciona a aba abaixo do ícone, com 10px de espaçamento */
+  right: 0; /* Alinha a aba à direita do container do ícone */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  padding: 15px 20px;
+  width: 220px; /* Largura da aba */
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.5; /* Espaçamento entre as linhas */
+  text-align: left; /* Garante que o texto fique à esquerda dentro da aba */
+  opacity: 1; /* Garante que ela seja visível (React controla a visibilidade) */
+  visibility: visible; /* Garante que ela seja visível */
+  /* transition: opacity 0.3s ease; Se quisesse uma animação de fade */
+}
+
+.profile-info-tab p {
+  margin: 0; /* Remove margens padrão dos parágrafos dentro da aba */
+  padding: 0;
+}
+
+.profile-info-tab strong {
+  color: #1a1a1a;
+  font-size: 1rem;
+}
+
+.main-content-fornecedor {
+    flex-grow: 1;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 30px;
+    text-align: center;
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 800;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.section-subtitle {
+    font-size: 1.2em;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.no-results {
+    font-size: 1.2em;
+    color: #777;
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 50px 0;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    animation: fadeInScale 0.6s ease-out backwards; /* Certifique-se de ter fadeInScale definido em outro lugar se estiver usando, ou remova */
+    animation-delay: var(--delay);
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px var(--shadow-strong);
+}
+
+.card-image-wrapper {
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .card-img {
+    transform: scale(1.08);
+}
+
+.card-info {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.3em;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.budget-button,
+.call-button {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-light);
+}
+
+.budget-button {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.budget-button:hover {
+    background-color: var(--hover-effect);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.call-button {
+    background-color: #f0f0f0;
+    color: var(--dark-text);
+    border: 1px solid #ddd;
+}
+
+.call-button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.call-button svg {
+    color: #4CAF50;
+}
+
+.rodape {
+    display: none;
+}
+
+.fundo-silhuetas {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .header {
+        padding: 15px 25px;
+    }
+    .logo {
+        font-size: 30px;
+    }
+    .nav-bar {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-content-fornecedor {
+        padding: 30px 15px;
+    }
+    .section-title {
+        font-size: 2.5em;
+    }
+    .section-subtitle {
+        font-size: 1.1em;
+    }
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .product-card {
+        width: 100%;
+    }
+    .card-image-wrapper {
+        height: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .logo {
+        margin-bottom: 10px;
+    }
+    .nav-bar {
+        flex-direction: column;
+        width: 90%;
+        max-width: 400px;
+    }
+    .search-bar {
+        width: 100%;
+        margin: 0;
+    }
+    .profile-icon-container {
+        position: static; /* Ajusta a posição para mobile para não sobrepor */
+        margin-top: 10px;
+    }
+    /* Estilos para a aba em mobile */
+    .profile-info-tab {
+        width: 180px; /* Reduz a largura em telas menores */
+        font-size: 0.85rem;
+        padding: 10px 15px;
+        top: calc(100% + 5px); /* Ajusta a posição */
+        right: auto; /* Desfaz o alinhamento à direita */
+        left: 50%; /* Centraliza a aba horizontalmente */
+        transform: translateX(-50%); /* Ajusta a centralização */
+    }
+    .main-content-fornecedor {
+        margin-top: 150px;
+    }
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .product-card {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    .section-title {
+        font-size: 2em;
+    }
+    .section-subtitle {
+        font-size: 1em;
+    }
+    .budget-button, .call-button {
+        font-size: 0.85em;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 15px;
+    }
+    .logo {
+        font-size: 28px;
+    }
+    .back-button {
+        width: 35px;
+        height: 35px;
+    }
+    .search-input {
+        font-size: 0.9em;
+    }
+    .section-title {
+        font-size: 1.8em;
+    }
+    .section-subtitle {
+        font-size: 0.9em;
+    }
+}
