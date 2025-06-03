@@ -60,6 +60,14 @@ No cabeçalho da tela do usuário fornecedor haverá um simbolo de mensagens, l�
 
 O usuário pode adicionar um comentario sobre sua expericiencia na plataforma
 
+## Tela de orçamento, mensagem automatica
+
+![Tela de orçamento com mensagem automática](src/assets/img/tela-orcamento.png)
+
+### Storyboards
+
+O usuário pode fazer um orçamento, e terá uma mensagem automatica
+
 # Programação em Par experimentada
 
  HEAD
