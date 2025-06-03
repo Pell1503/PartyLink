@@ -68,6 +68,14 @@ O usuário pode adicionar um comentario sobre sua expericiencia na plataforma
 
 O usuário pode fazer um orçamento, e terá uma mensagem automatica
 
+## Tela do Dashboard
+
+![Tela do dashboard](src/assets/img/tela-dashboard.png)
+
+### Storyboards
+
+O usuário como fornecedor tem como acessar a tela de dashboard e ver seu desempenho
+
 # Programação em Par experimentada
 
  HEAD
