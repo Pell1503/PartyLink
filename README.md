@@ -77,6 +77,7 @@ Desde o inicío do projeto trabalhos juntos para o desenvolvimento da plataforma
 
 Apesar das limitações de equipe e dificuldades que surgiram durante o desenvolvimento conseguimos entregar o projeto. Aprendemos usar uma nova ferramenta, o react. Foi uma experiência desafiadora, todavia boa
 
+![Imagem de programação em par](src/assets/img/programação-par.jpeg)
 
 ## Diagrama de Atividades
 
