@@ -52,6 +52,14 @@ Na tela principal o cliente visualizará os fornecdores presentes na plataforma.
 
 No cabeçalho da tela do usuário fornecedor haverá um simbolo de mensagens, lá vai está propostas, o fornecedor pode aceitar ou não. Clicando no botão de aceitar com icone de seta, ou recusar no icone de lixeira
 
+## Tela experiência do usuário
+
+![Tela de experiencia do usuario](src/assets/img/tela-experiencia.png)
+
+### Storyboards
+
+O usuário pode adicionar um comentario sobre sua expericiencia na plataforma
+
 # Programação em Par experimentada
 
  HEAD
