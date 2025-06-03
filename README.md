@@ -10,20 +10,6 @@ O PartyLink é um marketplace digital que fornece uma conexão entre clientes e 
 ## Protótipo do Figma
 [Ver protótipo do Figma](https://www.figma.com/design/kLCXuvtk9LYKbZEaosKdjm/Market-Place?node-id=0-1&m=dev&t=wAsaRvRU5EYYFpAV-1)
 
-### Screencast
-
-Primeiramente o usuário entra no app, faz o login de sua conta no botão com descrição (clique aqui), caso não tenha uma conta clique na opção criar,entra na tela de cadastro, há duas opções de cadastro, uma para cliente outro para fornecedor, o usuário escolhe qual opção deseja, e faz o cadastro(Para cada tipo de usuário há um formulário diferente a ser preenchido). Assim que criar sua conta o usuário pode fazer o login.
-
-#### Tela principal do usuário cliente
-
-##### Cabeçalho
-
-Como cliente a tela terá um cabeçalho contendo foto de perfil, logo da Partylink,e um espaço para pesquisa, respectivamente. Ao clicar na foto de perfil o usuário pode modificar informações do perfil,ao clicar no logo o usuário recarrega a página para a tela principal, em pesquisa o cliente pode buscar por fornecedores, a partir do nome correto da empresa ou pessoa.  
-
-##### Principal
-
-Nessa areá aparecerá as categorias presentes no mercado,como, comida,bebidas,roupas,etc, ao clicar em uma dessas opções o usuário filtra os fornecedores do produto que escolheu.Além de uma seção contendo fornecedores presentes no app, e caso o cliente se interesse no produto, pode entrar em contato e fazer uma proposta dos produtos que deseja comprar.
-
 # Protótipos de Lo-Fi (figma)
 
 ## Tela de Cadastro usuário cliente
