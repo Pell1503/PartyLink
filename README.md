@@ -78,7 +78,6 @@ O usuário como fornecedor tem como acessar a tela de dashboard e ver seu desemp
 
 # Programação em Par experimentada
 
- HEAD
 Desde o inicío do projeto trabalhos juntos para o desenvolvimento da plataforma, juntando nossas ideias e soluções para póssiveis problemas. Alguns problemas surgiram que dificultou o desenolvivemento, como, tempo limitado, limitações tecnicas, e limitação na equipe, a qual era para ser formada com 4 pessoas, e no fim foi apenas dois.
 
 Apesar das limitações de equipe e dificuldades que surgiram durante o desenvolvimento conseguimos entregar o projeto. Aprendemos usar uma nova ferramenta, o react. Foi uma experiência desafiadora, todavia boa
